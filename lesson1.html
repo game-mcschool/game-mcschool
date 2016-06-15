@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Game. MCSchool </title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style-js.css">
+	<link href='https://fonts.googleapis.com/css?family=Oswald:400,700|Lora:400,700' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="img/favicon.png" type="image/jpg">
+</head>
+<body>
+	<div id="background">
+		<div id="window">
+			<h1>Привет!<p>Не хочешь сыграть в интересную игру?</p></h1>
+			<button class="btn-all btn-yes" onclick="show('none')">Да, давай сыграем!</button>
+			<button class="btn-all btn-no" onclick="showlastpage('block')">Нет, не сейчас!</button>
+		</div>
+	</div>
+	<div id="bg-last-page">
+		<div id="last-page">
+			<h1>Передумаешь заходи  ))</h1>
+			<img src="img/img-no.jpg" alt="" />
+		</div>
+	</div>
+	<div class="the-game">
+		<h1>Я загадал число от 1 до 500.</h1>
+		<h2>Попробуй угадай его!</h2>
+		<form id="form" onsubmit="myFunction()">
+			<input type="text" id="yourversion" placeholder="Твой вариант...">
+			<div onclick="myFunction()" class="btn-game">Играть</div>
+		</form>
+	</div>
+	<div id="result"></div>
+	<script type="text/javascript">
+		function myFunction() {
+			var yourversion, result;
+			yourversion = document.getElementById('yourversion').value;
+			var number=(Math.round(Math.random()*500 + 1));
+			if (isNaN(yourversion)){
+				result = "<p>Друг! Это вообще не число!</p><img src='img/isNaN.jpg'>";
+			}
+			else if (yourversion <= 0 || 500 < yourversion) {
+				result = "<p>Ой! Это не по правилам!</p><img src='img/warning.png'>";
+			}
+			else if (number - 50 < yourversion && yourversion < number) {
+				result = "<p>Почти! Но мое число чуть больше... </p><img src='img/almost-got.jpg'>";
+			}
+			else if (number > yourversion - 50 && number < yourversion) {
+				result = "<p>Почти! Но мое число немного меньше...</p><img src='img/almost-got.jpg'>";
+			}
+			else if (yourversion < number) {
+				result = "<p>Да как так-то? Твое число слишком маленькое!</p><img src='img/toosmall.png'>";
+			}
+			else if (yourversion > number) {
+				result = "<p>Ох-ох... Твое число слишком большое!</p><img src='img/toobig.png'>";
+			}
+			else if (yourversion = number) {
+				result = "<p>Мои поздравления! Ты выиграл!</p><img src='img/you-win.jpg'>";
+			}
+			document.getElementById('result').innerHTML = result;
+		}
+	</script>
+	<script type="text/javascript">
+		function show(state){
+			document.getElementById('window').style.display = state;
+			document.getElementById('background').style.display = state; 
+		}
+		function showlastpage(state){
+			document.getElementById('last-page').style.display = state;
+			document.getElementById('bg-last-page').style.display = state; 	
+		}
+	</script>
+	</div>
+</body>
+</html>

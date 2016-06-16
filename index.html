@@ -25,7 +25,7 @@
 	<div class="the-game">
 		<h1>Я загадал число от 1 до 500.</h1>
 		<h2>Попробуй угадай его!</h2>
-		<form id="form" onsubmit="myFunction()">
+		<form id="form" onsubmit="myFunction();return false">
 			<input type="text" id="yourversion" placeholder="Твой вариант...">
 			<div onclick="myFunction()" class="btn-game">Играть</div>
 		</form>

@@ -18,7 +18,7 @@
 	</div>
 	<div id="bg-last-page">
 		<div id="last-page">
-			<h1>Передумаешь заходи  ))</h1>
+			<h1>Передумаешь, заходи  ))</h1>
 			<img src="img/img-no.jpg" alt="" />
 		</div>
 	</div>
@@ -35,6 +35,7 @@
 		function myFunction() {
 			var yourversion, result;
 			yourversion = document.getElementById('yourversion').value;
+				document.getElementById('yourversion').value = "";
 			var number=(Math.round(Math.random()*500 + 1));
 			if (isNaN(yourversion)){
 				result = "<p>Друг! Это вообще не число!</p><img src='img/isNaN.jpg'>";
@@ -43,7 +44,7 @@
 				result = "<p>Ой! Это не по правилам!</p><img src='img/warning.png'>";
 			}
 			else if (number - 50 < yourversion && yourversion < number) {
-				result = "<p>Почти! Но мое число чуть больше... </p><img src='img/almost-got.jpg'>";
+				result = "<p>Почти! Но мое число чуть больше... </p><img src='img/almost-got2.jpg'>";
 			}
 			else if (number > yourversion - 50 && number < yourversion) {
 				result = "<p>Почти! Но мое число немного меньше...</p><img src='img/almost-got.jpg'>";
